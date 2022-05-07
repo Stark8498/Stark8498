@@ -13,9 +13,7 @@ void TimKiem(int a[],int n, int phantu)
         }
     }
     printf("\nPhan tu da lay di la: %d",a[j]);
-
-   printf("\nPhan tu bi lay di nam o so thu: %d",j+1);
-    
+   printf("\nPhan tu bi lay di nam o so thu: %d",j+1);    
 }
 int random(int minN, int maxN){
     return minN + rand() % (maxN + 1 - minN);
@@ -25,10 +23,9 @@ int main()
 {
    int Sum;
    int arr[10];
-   int Kai;
    do
    {
-        printf("Nhap vao Tong day so thoa man (sum-45) chia het cho 10: \n");
+        printf("Nhap vao Tong day so thoa man (tong-45) chia het cho 10: \n");
         scanf("%d",&Sum);
    } while ((Sum-45)%10!=0);
    printf("Day so can tim la: \n");
@@ -38,14 +35,9 @@ int main()
        printf("\n%d ",(Sum-45)/10 +i);
    }
   srand((int)time(0));  
-    int r;
-    r = random(arr[0],arr[10]);
-        printf("\n%d ",r);
-    
-   TimKiem(arr,10,r);
-   
-   
-
-   
-    return 0;
+  int Kai;
+    Kai = random(arr[0],arr[10]);
+        printf("\n%d ",Kai);    
+   TimKiem(arr,10,Kai);
+   return 0;
 }
