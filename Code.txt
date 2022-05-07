@@ -1,19 +1,27 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <time.h>
-void TimKiem(int a[],int n, int phantu)
+void Xoaphantu(int a[],int n, int pos)
 {
-    int j;
-    for(int i = 0; i < n; i++){
-      
-        if(phantu == a[i]){
-            
-            j = i;
-            break;
-        }
+   
+    for(int i = pos; i < n-1; i++){
+      a[i]=a[i+1];
     }
-    printf("\nPhan tu da lay di la: %d",a[j]);
-   printf("\nPhan tu bi lay di nam o so thu: %d",j+1);    
+    --n; 
+}
+int Tinhtongmang(int a[],int n)
+{
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        sum=sum+a[i];
+    }
+    return sum;
+}
+void XuatMang(int a[], int n){
+    for(int i = 0;i < n; i++){
+        printf("%4d", a[i]);
+    }
 }
 int random(int minN, int maxN){
     return minN + rand() % (maxN + 1 - minN);
@@ -36,8 +44,11 @@ int main()
    }
   srand((int)time(0));  
   int Kai;
-    Kai = random(arr[0],arr[10]);
-        printf("\n%d ",Kai);    
-   TimKiem(arr,10,Kai);
-   return 0;
+    Kai = random(1,10); 
+    printf("\nvi tri bi lay di la: %d",Kai);
+    Xoaphantu(arr,10,Kai);
+    printf("\nPhan tu bi xoa la: %d",Sum-Tinhtongmang(arr,9));
+    printf("\nMang sau khi xoa: ");
+    XuatMang(arr,9);
+    return 0;
 }
